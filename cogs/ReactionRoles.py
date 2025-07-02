@@ -370,5 +370,5 @@ class ReactionRoles(commands.Cog):
                     await member.remove_roles(reaction_role, reason="Reaction role removal")
 
 
-def setup(bot):
-    bot.add_cog(ReactionRoles(bot))
+async def setup(bot):
+    await bot.add_cog(ReactionRoles(bot))

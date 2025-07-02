@@ -261,5 +261,5 @@ class Roles(commands.Cog):
             await ctx.send("No verification role is set for this guild. Use `.wpiRole` to set it")
 
 
-def setup(bot):
-    bot.add_cog(Roles(bot))
+async def setup(bot):
+    await bot.add_cog(Roles(bot))

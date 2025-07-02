@@ -102,5 +102,5 @@ class BotTools(commands.Cog):
         os.exit(0)
 
 
-def setup(bot):
-    bot.add_cog(BotTools(bot))
+async def setup(bot):
+    await bot.add_cog(BotTools(bot))

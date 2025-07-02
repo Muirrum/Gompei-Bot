@@ -10,6 +10,7 @@ from datetime import datetime
 import traceback
 import discord
 import sys
+import os
 
 
 def get_prefix(client, message):
@@ -26,8 +27,9 @@ def get_prefix(client, message):
 
 # Initialize Bot
 start_time = None
-intents = discord.Intents.default()
+intents = discord.Intents.all()
 intents.members = True
+intents.messages = True
 intents.presences = True
 intents.guilds = True
 gompei = commands.Bot(command_prefix=get_prefix, case_insensitive=True, intents=intents)
@@ -68,23 +70,23 @@ async def on_ready():
     startup_cogs = [
         "Administration",
         "DirectMessages",
-        "EmbedBuilder",
-        "Games",
-        "Highlights",
+        #        "EmbedBuilder",
+        #"Games",
+        #"Highlights",
         "Information",
-        "Leaderboards",
-        "Logging",
-        "Memes",
+        #"Leaderboards",
+        #"Logging",
+        #"Memes",
         "ReactionRoles",
         "Roles",
-        "Triggers",
-        "Verification",
+        #"Triggers",
+        #"Verification",
         "Voting",
         "BotTools"
     ]
 
     for cog in startup_cogs:
-        gompei.load_extension(f"cogs.{cog}")
+        await gompei.load_extension(f"cogs.{cog}")
         print(f"Loaded cog {cog}")
 
     Config.clear_close_time()
@@ -303,4 +305,4 @@ async def remove_command_channel(ctx, channel: discord.TextChannel):
 
 
 # Run the bot
-gompei.run(sys.argv[1])
+gompei.run(os.environ["TOKEN"])

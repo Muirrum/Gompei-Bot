@@ -325,5 +325,5 @@ class Verification(commands.Cog):
                 Config.remove_message(message.author)
 
 
-def setup(bot):
-    bot.add_cog(Verification(bot))
+async def setup(bot):
+    await bot.add_cog(Verification(bot))

@@ -331,5 +331,5 @@ class Highlights(commands.Cog):
                message.author.id == int(user_id)
 
 
-def setup(bot):
-    bot.add_cog(Highlights(bot))
+async def setup(bot):
+    await bot.add_cog(Highlights(bot))

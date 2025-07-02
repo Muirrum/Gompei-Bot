@@ -242,7 +242,8 @@ async def update_guild_settings(guild: discord.Guild):
             guild.get_channel(raw_settings["guilds"][str(guild.id)]["logging"]["overwrite_channels"][key])
 
     try:
-        guilds[guild]["logging"]["last_audit"] = (await guild.audit_logs(limit=1).flatten())[0].id
+        last_audit = [audit async for audit in guild.audit_logs(limit=1)]
+        guilds[guild]["logging"]["last_audit"] = last_audit[0].id
     except IndexError:
         pass
 

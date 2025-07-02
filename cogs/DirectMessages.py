@@ -432,5 +432,5 @@ class DirectMessages(commands.Cog):
                     await ctx.send("Successfully updated DM channel to <#" + str(channel_object.id) + ">")
 
 
-def setup(bot):
-    bot.add_cog(DirectMessages(bot))
+async def setup(bot):
+    await bot.add_cog(DirectMessages(bot))

@@ -26,5 +26,5 @@ class Triggers(commands.Cog):
                     await message.add_reaction("😨")
 
 
-def setup(bot):
-    bot.add_cog(Triggers(bot))
+async def setup(bot):
+    await bot.add_cog(Triggers(bot))

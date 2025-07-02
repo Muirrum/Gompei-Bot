@@ -453,5 +453,5 @@ class Voting(commands.Cog):
         await ctx.send("This poll does not update live", embed=embed)
 
 
-def setup(bot):
-    bot.add_cog(Voting(bot))
+async def setup(bot):
+    await bot.add_cog(Voting(bot))
